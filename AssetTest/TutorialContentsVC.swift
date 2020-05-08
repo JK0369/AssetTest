@@ -28,11 +28,10 @@ class TutorialContentsVC: UIViewController {
         
         titleLabel.text = titleText
         print(titleText!)
-        if let img = UIImage(named: imageFile) {
-            bgImageView.image = img
-        } else {
-            bgImageView.backgroundColor = .green
-        }
+        
+        guard let img = UIImage(named: imageFile) else {return}
+        
+        bgImageView.image = img
 
         bgImageView.frame = CGRect(x: 0, y: 0, width: view.safeAreaLayoutGuide.layoutFrame.width, height: view.safeAreaLayoutGuide.layoutFrame.height)
         view.addSubview(bgImageView)

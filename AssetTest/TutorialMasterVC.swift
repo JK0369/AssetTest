@@ -38,9 +38,6 @@ class TutorialMasterVC: UIViewController {
         self.view.addSubview(pageVC.view)
         pageVC.didMove(toParent: self) // 자식 뷰 컨트롤러에게 부모 뷰 컨트롤러가 바뀌었음을 알림
         
-        // 위에서 addChild와 didMove해주는 이유 : self.presentingViewController를 이용하기 위함
-        // 쓰는 이유 더 찾아보기
-        
         exitBtn = UIButton()
         exitBtn.setTitle("close", for: .normal)
         exitBtn.setTitleColor(.blue, for: .normal)
@@ -76,9 +73,6 @@ class TutorialMasterVC: UIViewController {
         let ud = UserDefaults.standard
         ud.set(true, forKey: UserInfoKey.tutorial)
         ud.synchronize()
-        
-        print("after ud=\(ud.bool(forKey: UserInfoKey.tutorial))")
-        
         self.presentingViewController?.dismiss(animated: false)
     }
 }
